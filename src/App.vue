@@ -5,7 +5,7 @@ import { RouterView } from 'vue-router';
 
 <template>
   <v-app>
-    <v-navigation-drawer theme="dark">
+    <v-navigation-drawer theme="dark" v-if="authenticated">
       <v-list>
         <v-list-item title="HRIS"></v-list-item>
       </v-list>
@@ -20,9 +20,17 @@ import { RouterView } from 'vue-router';
     </v-navigation-drawer>
 
     <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
-      <v-container>
-        <RouterView />
-      </v-container>
+      <RouterView />
     </v-main>
   </v-app>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      authenticated: false, // Set this based on your authentication logic
+    };
+  },
+};
+</script>
